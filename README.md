@@ -1,26 +1,15 @@
-## Devvit Three.js Starter
+# GolfMaster
+Reddit Golf Game
 
-A starter to build web applications on Reddit's developer platform
+A daily golf hole on Reddit, built with Devvit Web and three.js. Every day at 00:00 UTC a new hole is generated and posted. Players swipe to swing and compete on the day's leaderboard: fewest strokes wins, and fewest tries breaks ties.
 
-- [Devvit](https://developers.reddit.com/): A way to build and deploy immersive games on Reddit
-- [Vite](https://vite.dev/): For compiling the webView
-- [Three.js](https://threejs.org/): For 3D animations and physics
-- [Express](https://expressjs.com/): For backend logic
-- [TypeScript](https://www.typescriptlang.org/): For type safety
+## Develop
 
-## Getting Started
+Requires Node 22.
 
-> Make sure you have Node 22 downloaded on your machine before running!
+- `npm run login`: log in to Reddit (once)
+- `npm run dev`: playtest on the dev subreddit
+- `npm run test:unit`: physics, daily-hole and scoring tests
+- `npm run deploy`: type-check, lint and upload the app
 
-1. Run `npm create devvit@latest --template=threejs`
-2. Go through the installation wizard. You will need to create a Reddit account and connect it to Reddit developers
-3. Copy the command on the success page into your terminal
-
-## Commands
-
-- `npm run dev`: Starts a development server where you can develop your application live on Reddit.
-- `npm run build`: Builds your client and server projects
-- `npm run deploy`: Uploads a new version of your app
-- `npm run launch`: Publishes your app for review
-- `npm run login`: Logs your CLI into Reddit
-- `npm run type-check`: Type checks, lints, and prettifies your app
+Built from Reddit's Devvit three.js starter; its license is in `LICENSE-devvit-template`.
