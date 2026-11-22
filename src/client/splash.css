@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.app {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  padding: 16px;
+  color: #fff;
+  /* sky over fairway, the game's own palette */
+  background: linear-gradient(#8fc7e8 0 45%, #6cc24a 45% 70%, #3f8f3a 70%);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: min(100%, 360px);
+  padding: 20px 16px;
+  text-align: center;
+  background: rgba(20, 32, 26, 0.88);
+  border-radius: 16px;
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9fd78a;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 800;
+}
+
+.facts {
+  font-size: 0.95rem;
+  color: #cfd8d2;
+}
+
+.you {
+  font-weight: 700;
+  color: #ffd43b;
+}
+
+.you[hidden] {
+  display: none;
+}
+
+.start-button {
+  margin-top: 8px;
+  min-height: 44px;
+  padding: 0 28px;
+  border: none;
+  border-radius: 999px;
+  background: #ff4500;
+  color: #fff;
+  font: inherit;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.start-button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.hint {
+  font-size: 0.8rem;
+  color: #9fb0a6;
+}

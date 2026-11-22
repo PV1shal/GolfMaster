@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" type="text/css" href="game.css" />
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width, height=device-height, user-scalable=0"
+    />
+  </head>
+  <body>
+    <canvas id="bg"></canvas>
+    <div class="hud">
+      <div class="top">
+        <div class="status">
+          <div class="info" id="info" aria-live="polite">Swipe up to swing</div>
+          <div class="weather" aria-hidden="true">
+            <div class="wx wind" id="wind">
+              <span class="wind-speed" id="wind-speed">0</span>
+              <span class="wind-arrow" id="wind-arrow">
+                <svg viewBox="0 0 24 24" width="26" height="26"><path d="M12 2 20 12h-5v10H9V12H4z" fill="currentColor" /></svg>
+              </span>
+            </div>
+            <span class="wx" id="rain-icon">
+              <svg viewBox="0 0 32 32" width="34" height="34">
+                <path
+                  d="M9 20a6 6 0 0 1-.6-12A8 8 0 0 1 24 9.5 5.3 5.3 0 0 1 24 20z"
+                  fill="currentColor"
+                  stroke="rgba(0,0,0,.35)"
+                />
+                <path d="m11 23-2 5m7-5-2 5m7-5-2 5" stroke="#7fc4ff" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </span>
+            <span class="wx" id="fog-icon">
+              <svg viewBox="0 0 32 32" width="34" height="34" fill="none" stroke="#e3e8ec" stroke-width="2.5" stroke-linecap="round">
+                <path d="M5 10q3-3 6 0t6 0 6 0 4-1M5 16q3-3 6 0t6 0 6 0 4-1M5 22q3-3 6 0t6 0 6 0 4-1" />
+              </svg>
+            </span>
+          </div>
+          <span class="sr-only" id="weather-text"></span>
+        </div>
+        <button type="button" class="score-btn" id="score-btn" aria-haspopup="dialog">
+          <span class="score-num" id="strokes">0</span>
+          <span class="score-par" id="score-par">Par 3</span>
+        </button>
+      </div>
+      <div class="menu-wrap" id="menu-wrap">
+          <button
+            type="button"
+            class="icon-btn"
+            id="menu-btn"
+            aria-label="Settings"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-controls="menu"
+          >
+            <!-- gear: dashed ring = teeth, solid ring = body -->
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="8" stroke-width="4" stroke-dasharray="3.14 3.14" />
+              <circle cx="12" cy="12" r="5.5" stroke-width="3.5" />
+            </svg>
+          </button>
+          <div class="menu" id="menu" role="menu" hidden>
+            <button type="button" role="menuitem" id="reset">Play again</button>
+            <button type="button" role="menuitem" id="replay">Replay</button>
+            <button type="button" role="menuitem" id="leaderboard">Leaderboard</button>
+          </div>
+      </div>
+      <div
+        class="spin"
+        id="spin"
+        tabindex="0"
+        role="group"
+        aria-label="Spin: tap where to strike the ball. Low is backspin, high is topspin, sides curve the shot. Arrow keys adjust."
+        aria-valuetext="no spin"
+      >
+        <div class="spin-dot" id="spin-dot"></div>
+      </div>
+    </div>
+    <div class="power-tag" id="power-tag" aria-hidden="true" hidden></div>
+    <dialog class="scorecard" id="scorecard" aria-labelledby="sc-title">
+      <div class="sc-hero" id="sc-hero" hidden>
+        <div class="confetti" id="confetti" aria-hidden="true"></div>
+        <h2 class="hero-title" id="hero-title">Well done!</h2>
+        <p class="hero-sub" id="hero-sub"></p>
+        <button type="button" class="hero-rank" id="hero-rank" hidden></button>
+      </div>
+      <form method="dialog" class="sc-head">
+        <h2 id="sc-title">Scorecard</h2>
+        <button type="submit" class="icon-btn" aria-label="Close scorecard">✕</button>
+      </form>
+      <div class="sc-summary" id="sc-summary"></div>
+      <div class="sc-scroll">
+        <table class="sc-table" id="sc-table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Aim</th>
+              <th scope="col">Power</th>
+              <th scope="col">Spin</th>
+              <th scope="col">Result</th>
+            </tr>
+          </thead>
+          <tbody id="sc-rows"></tbody>
+        </table>
+        <p class="sc-empty" id="sc-empty">No shots yet. Swipe up to swing.</p>
+      </div>
+      <div class="sc-actions" id="sc-actions" hidden>
+        <button type="button" id="end-replay">Replay</button>
+        <button type="button" class="primary" id="end-new">Play again</button>
+      </div>
+    </dialog>
+    <dialog class="scorecard" id="lb" aria-labelledby="lb-title">
+      <form method="dialog" class="sc-head">
+        <h2 id="lb-title">Today's leaderboard</h2>
+        <button type="submit" class="icon-btn" aria-label="Close leaderboard">✕</button>
+      </form>
+      <div class="sc-summary" id="lb-summary"></div>
+      <div class="sc-scroll">
+        <ol class="lb-list" id="lb-list"></ol>
+      </div>
+    </dialog>
+    <script type="module" src="game.ts"></script>
+  </body>
+</html>
